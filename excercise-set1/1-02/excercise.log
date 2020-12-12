@@ -1,0 +1,23 @@
+➜  devops-docker-hy docker ps -a
+CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS                       PORTS     NAMES
+c7c52f0b1a75   jenkins    "/bin/tini -- /usr/l…"   5 minutes ago   Exited (143) 3 minutes ago             peaceful_feynman
+275952e186a7   postgres   "docker-entrypoint.s…"   6 minutes ago   Exited (1) 6 minutes ago               frosty_curran
+642963f6a727   nginx      "/docker-entrypoint.…"   6 minutes ago   Up 6 minutes                 80/tcp    objective_lamarr
+➜  devops-docker-hy docker stop 642963f6a727
+642963f6a727
+➜  devops-docker-hy docker ps -a
+CONTAINER ID   IMAGE      COMMAND                  CREATED         STATUS                       PORTS     NAMES
+c7c52f0b1a75   jenkins    "/bin/tini -- /usr/l…"   5 minutes ago   Exited (143) 3 minutes ago             peaceful_feynman
+275952e186a7   postgres   "docker-entrypoint.s…"   6 minutes ago   Exited (1) 6 minutes ago               frosty_curran
+642963f6a727   nginx      "/docker-entrypoint.…"   6 minutes ago   Exited (0) 5 seconds ago               objective_lamarr
+➜  devops-docker-hy docker images
+REPOSITORY                              TAG       IMAGE ID       CREATED        SIZE
+postgres                                latest    a6cd86e1dfce   31 hours ago   314MB
+nginx                                   latest    7baf28ea91eb   36 hours ago   133MB
+jenkins                                 latest    cd14cecfdb3a   2 years ago    696MB
+➜  devops-docker-hy docker system prune -a
+...
+➜  devops-docker-hy docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+➜  devops-docker-hy docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
