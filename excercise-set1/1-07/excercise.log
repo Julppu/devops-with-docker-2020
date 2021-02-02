@@ -1,0 +1,31 @@
+➜  devops-docker-hy docker build -t curler .
+[+] Building 29.4s (9/9) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                                                                                   0.0s
+ => => transferring dockerfile: 218B                                                                                                                                                                                                   0.0s
+ => [internal] load .dockerignore                                                                                                                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:16.04                                                                                                                                                                        0.8s
+ => [internal] load build context                                                                                                                                                                                                      0.0s
+ => => transferring context: 135B                                                                                                                                                            0.0s
+ => CACHED [1/4] FROM docker.io/library/ubuntu:16.04@sha256:e74994b7a9ec8e2129cfc6a871f3236940006ed31091de355578492ed140a39c                                                                                                           0.0s
+ => [2/4] COPY curler.sh curler.sh                                                                                                                                                                                                     0.0s
+ => [3/4] RUN chmod +x curler.sh                                                                                                                                                                                                       0.5s
+ => [4/4] RUN apt-get update > /dev/null 2>&1 && apt-get install -y curl > /dev/null 2>&1                                                                                                                                             27.4s
+ => exporting to image                                                                                                                                                                                                                 0.5s
+ => => exporting layers                                                                                                                                                                                                                0.5s
+ => => writing image sha256:47fa72d05b67b7644f705226bc40f35482731b4b961c10633ee8ace1aa378a11                                                                                                                                           0.0s
+ => => naming to docker.io/library/curler
+➜  devops-docker-hy docker container run -i curler
+Input website:
+helsinki.fi
+Searching..
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+100   231  100   231    0     0   5021      0 --:--:-- --:--:-- --:--:--  5133
