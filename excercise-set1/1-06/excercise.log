@@ -1,0 +1,19 @@
+➜  devops-docker-hy docker build -t docker-clock .
+[+] Building 1.9s (6/6) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                                                                                   0.0s
+ => => transferring dockerfile: 93B                                                                                                                                                                                                    0.0s
+ => [internal] load .dockerignore                                                                                                                                                                                                      0.1s
+ => => transferring context: 2B                                                                                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/devopsdockeruh/overwrite_cmd_exercise:latest                                                                                                                                                1.7s
+ => [auth] devopsdockeruh/overwrite_cmd_exercise:pull token for registry-1.docker.io                                                                                                                                                   0.0s
+ => CACHED [1/1] FROM docker.io/devopsdockeruh/overwrite_cmd_exercise@sha256:02e38f4285d5cfaff5ed57ae67a8d99e041027da8f5c972329b46e2b7a47b7d2                                                                                          0.0s
+ => exporting to image                                                                                                                                                                                                                 0.1s
+ => => exporting layers                                                                                                                                                                                                                0.0s
+ => => writing image sha256:2e188bf896689ee3cd2c0198e5cdbc2af25827990c10a28b11f137fbb7dc4a26                                                                                                                                           0.0s
+ => => naming to docker.io/library/docker-clock
+➜  devops-docker-hy docker container run docker-clock
+1
+2
+3
+4
+5
