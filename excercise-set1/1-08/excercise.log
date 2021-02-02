@@ -1,0 +1,3 @@
+➜  devops-docker-hy docker container run -v "/usr/app/logs.txt:$(pwd)/logs.txt" devopsdockeruh/first_volume_exercise
+Wrote to file /usr/app/logs.txt
+Wrote to file /usr/app/logs.txt
