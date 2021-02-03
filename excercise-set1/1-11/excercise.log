@@ -1,0 +1,33 @@
+➜  devops-docker-hy docker build -t backend-example .
+[+] Building 2.4s (9/9) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                                                                                   0.1s
+ => => transferring dockerfile: 226B                                                                                                                                                                                                   0.0s
+ => [internal] load .dockerignore                                                                                                                                                                                                      0.0s
+ => => transferring context: 2B                                                                                                                                                                                                        0.0s
+ => [internal] load metadata for docker.io/library/node:10.23.2-alpine                                                                                                                                                                 2.2s
+ => [auth] library/node:pull token for registry-1.docker.io                                                                                                                                                                            0.0s
+ => [1/4] FROM docker.io/library/node:10.23.2-alpine@sha256:7351c71024245bd1133674ce2a0869c80926712a9e03004a93cf58a066a8ad68                                                                                                           0.0s
+ => CACHED [2/4] RUN apk add git     && git clone https://github.com/docker-hy/backend-example-docker.git                                                                                                                              0.0s
+ => CACHED [3/4] WORKDIR backend-example-docker                                                                                                                                                                                        0.0s
+ => CACHED [4/4] RUN npm install                                                                                                                                                                                                       0.0s
+ => exporting to image                                                                                                                                                                                                                 0.0s
+ => => exporting layers                                                                                                                                                                                                                0.0s
+ => => writing image sha256:edfcc039ef32e8bd608d88bf523e59a8ab7522437a276da94056a909f587af7c                                                                                                                                           0.0s
+ => => naming to docker.io/library/backend-example
+➜  devops-docker-hy docker container run -d -p 8000:8000 -v $(pwd)/logs.txt:/backend-example-docker/logs.txt backend-example
+
+> backend-example-docker@1.0.0 start /backend-example-docker
+> node index.js
+
+ENV values set as follows: { DB:
+   { username: undefined,
+     password: undefined,
+     database: undefined,
+     host: 'localhost' },
+  PORT: 8000,
+  FRONT_URL: '',
+  REDIS: undefined,
+  REDIS_PORT: 6379 }
+[Exercise 2.6+] DB_USERNAME and/or DB_PASSWORD are not defined, skipping db connection
+[Exercise 2.5+] REDIS is not defined, skipping redis connection
+Started on port 8000
